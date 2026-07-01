@@ -99,7 +99,9 @@ export const ServicesProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const saveCategory = async (category: ServiceCategory) => {
     const path = `services/${category.id}`;
     try {
-      await setDoc(doc(db, 'services', category.id), category);
+      // Remove non-serializable React component 'icon' before persisting to Firestore
+      const { icon, ...serializableCategory } = category;
+      await setDoc(doc(db, 'services', category.id), serializableCategory);
       console.log(`[DEBUG] Saved category successfully: ${category.id}`);
     } catch (error) {
       handleFirestoreError(error, OperationType.WRITE, path);
