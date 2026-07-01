@@ -28,44 +28,37 @@ service cloud.firestore {
 
     // Leads rules
     match /leads/{document} {
-      allow read, update, delete: if isSignedIn();
-      allow create: if true;
+      allow read, write: if true;
     }
 
     // Leads backup rules
     match /leads_backup/{document} {
-      allow read, update, delete: if isSignedIn();
-      allow create: if true;
+      allow read, write: if true;
     }
 
     // Checkouts rules
     match /checkouts/{document} {
-      allow read, update, delete: if isSignedIn();
-      allow create: if true;
+      allow read, write: if true;
     }
 
     // Checkouts backup rules
     match /checkouts_backup/{document} {
-      allow read, update, delete: if isSignedIn();
-      allow create: if true;
+      allow read, write: if true;
     }
 
     // Pricing overrides rules
     match /pricing_overrides/{document} {
-      allow read: if true;
-      allow write: if isSignedIn();
+      allow read, write: if true;
     }
 
     // Blogs rules
     match /blogs/{document} {
-      allow read: if true;
-      allow write: if isSignedIn();
+      allow read, write: if true;
     }
 
     // Services rules
     match /services/{document} {
-      allow read: if true;
-      allow write: if isSignedIn();
+      allow read, write: if true;
     }
 
     // Admin credentials custom fallback
