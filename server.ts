@@ -30,7 +30,7 @@ async function startServer() {
     const cleanPath = urlPath.split('?')[0].replace(/\/$/, '') || '/';
 
     // Default metadata
-    let title = 'Infovisory: Corporate & Legal Services | CA & Legal Advisors in Jaipur';
+    let title = 'Infovisory: Tax. Compliance. Growth | CA & Legal Advisors in Jaipur';
     let description = 'Infovisory provides premium company registration, GST filing, trademark registration, tax compliance, and corporate legal advisory services in Jaipur and across India.';
     let url = 'https://infovisory.com' + cleanPath;
     let image = 'https://infovisory.com/homepage-photo.jpg';
