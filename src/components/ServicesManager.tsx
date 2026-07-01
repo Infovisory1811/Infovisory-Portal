@@ -272,7 +272,8 @@ export default function ServicesManager() {
       setTimeout(() => setSaveSuccess(false), 3000);
     } catch (err) {
       console.error('Failed to save category:', err);
-      alert('An error occurred while saving.');
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      alert(`An error occurred while saving. Details: ${errorMsg}`);
     } finally {
       setIsSaving(false);
     }
@@ -291,7 +292,9 @@ export default function ServicesManager() {
       }
       setDeleteConfirmId(null);
     } catch (err) {
-      alert('Failed to delete category.');
+      console.error('Failed to delete category:', err);
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      alert(`Failed to delete category. Details: ${errorMsg}`);
     }
   };
 

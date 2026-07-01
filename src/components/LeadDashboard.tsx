@@ -207,7 +207,8 @@ export default function LeadDashboard() {
       setTimeout(() => setPricingSaveSuccess(false), 4000);
     } catch (err) {
       console.error("[DEBUG] LeadDashboard: Failed to commit pricing changes to Firestore:", err);
-      alert("Error committing changes to database. Please check connection and try again.");
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      alert(`Error committing changes to database. Details: ${errorMsg}\n\nPlease check connection and try again.`);
     } finally {
       setIsSavingPricing(false);
     }

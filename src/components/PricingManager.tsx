@@ -87,7 +87,8 @@ export default function PricingManager({
       }
     } catch (err) {
       console.error("Failed to delete service completely: ", err);
-      alert("Failed to delete service. Please check your network connection and try again.");
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      alert(`Failed to delete service. Details: ${errorMsg}\n\nPlease check your network connection and try again.`);
     } finally {
       setIsDeletingFeature(false);
     }
