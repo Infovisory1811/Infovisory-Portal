@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /leads-hub
+
+Sitemap: https://infovisory.com/sitemap.xml

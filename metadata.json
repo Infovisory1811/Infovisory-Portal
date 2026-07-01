@@ -1,0 +1,6 @@
+{
+  "name": "Infovisory: Corporate & Legal Services",
+  "description": "A professional platform for company registration, compliance management, and legal advisory services, inspired by EbizFiling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

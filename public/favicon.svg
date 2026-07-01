@@ -1,0 +1,49 @@
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for the pages to replicate the exact sleek corporate depth -->
+    <linearGradient id="logo-wing-grad-1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B2F64" />
+      <stop offset="60%" stop-color="#1E4E8C" />
+      <stop offset="100%" stop-color="#2575FC" />
+    </linearGradient>
+    <linearGradient id="logo-wing-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#081E3F" />
+      <stop offset="65%" stop-color="#123B70" />
+      <stop offset="100%" stop-color="#1E5CBA" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left-aligned sweeping crescent border holding the fins -->
+  <path 
+    d="M 85,32 C 93,42 96,56 92,70 C 86,88 68,98 50,96 C 30,94 16,77 18,58 C 20,38 35,22 55,20 C 67,19 78,24 84,32" 
+    stroke="#0b2c5c" 
+    stroke-width="7" 
+    stroke-linecap="round" 
+    fill="none" 
+  />
+
+  <!-- Central fanning fins (representing book pages/growth sails) -->
+  <!-- Fin 1 (Steepest, left wing) -->
+  <path 
+    d="M 48,78 C 52,62 61,42 74,27 C 72,44 62,65 48,78 Z" 
+    fill="url(#logo-wing-grad-1)" 
+  />
+
+  <!-- Fin 2 (Upper middle wing) -->
+  <path 
+    d="M 48,78 C 56,66 70,48 82,36 C 78,51 66,68 48,78 Z" 
+    fill="url(#logo-wing-grad-2)" 
+  />
+
+  <!-- Fin 3 (Lower middle wing) -->
+  <path 
+    d="M 48,78 C 60,70 76,56 87,46 C 81,59 68,72 48,78 Z" 
+    fill="url(#logo-wing-grad-1)" 
+  />
+
+  <!-- Fin 4 (Rightmost wing) -->
+  <path 
+    d="M 48,78 C 64,73 83,65 91,58 C 83,69 68,77 48,78 Z" 
+    fill="url(#logo-wing-grad-2)" 
+  />
+</svg>

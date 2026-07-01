@@ -1,0 +1,195 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "User feedback and rating review",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "comment": { "type": "string" },
+        "rating": { "type": "integer" },
+        "avatar": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "role", "comment", "rating", "createdAt"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Customer lead from consultations or forms",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "service": { "type": "string" },
+        "source": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "status": { "type": "string" },
+        "selectedPlans": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["id", "name", "email", "phone", "service", "source", "timestamp", "status"]
+    },
+    "Checkout": {
+      "title": "Checkout",
+      "description": "Pricing package checkout transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "selectedPlans": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "serviceName": { "type": "string" },
+        "serviceId": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "phone", "selectedPlans", "serviceName", "serviceId", "timestamp", "status"]
+    },
+    "PricingOverride": {
+      "title": "PricingOverride",
+      "description": "Admin override of service plans and packages",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "packages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "price": { "type": "string" },
+              "features": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "isPopular": { "type": "boolean" }
+            },
+            "required": ["name", "price", "features"]
+          }
+        },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "packages"]
+    },
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "Dynamic blog post details",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string" },
+        "title": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "image": { "type": "string" },
+        "date": { "type": "string" },
+        "author": { "type": "string" },
+        "category": { "type": "string" },
+        "readTime": { "type": "string" },
+        "quote": { "type": "string" },
+        "intro": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "heading": { "type": "string" },
+              "paragraphs": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["paragraphs"]
+          }
+        },
+        "stepsTitle": { "type": "string" },
+        "steps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "conclusion": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["slug", "title", "excerpt", "image", "date", "author", "category", "readTime", "quote", "intro", "sections", "conclusion"]
+    },
+    "ServiceCategory": {
+      "title": "ServiceCategory",
+      "description": "Main service categories and features with sub-services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "shortName": { "type": "string" },
+        "iconName": { "type": "string" },
+        "order": { "type": "integer" },
+        "subServices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "groupId": { "type": "string" }
+            },
+            "required": ["id", "name", "description"]
+          }
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" }
+            },
+            "required": ["id", "name"]
+          }
+        }
+      },
+      "required": ["id", "name", "subServices"]
+    }
+  },
+  "firestore": {
+    "services": {
+      "schema": "ServiceCategory",
+      "description": "Main features, service categories, and sub-services managed by admins"
+    },
+    "reviews": {
+      "schema": "Review",
+      "description": "Collection for reviews submitted by users"
+    },
+    "leads": {
+      "schema": "Lead",
+      "description": "Collection for client leads and contact inquiries"
+    },
+    "leads_backup": {
+      "schema": "Lead",
+      "description": "Collection for physical secure storage backup of client leads"
+    },
+    "checkouts": {
+      "schema": "Checkout",
+      "description": "Collection for customer service plan package selections"
+    },
+    "checkouts_backup": {
+      "schema": "Checkout",
+      "description": "Collection for backup of customer service plan package selections"
+    },
+    "pricing_overrides": {
+      "schema": "PricingOverride",
+      "description": "Collection for customized service packages edited by admins"
+    },
+    "blogs": {
+      "schema": "BlogPost",
+      "description": "Collection for active business insights and news articles"
+    }
+  }
+}

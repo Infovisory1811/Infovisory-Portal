@@ -1,0 +1,76 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Catch-all default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Reviews rules
+    match /reviews/{document} {
+      allow read: if true;
+      allow create: if request.resource.data != null 
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() <= 100
+                    && request.resource.data.role is string
+                    && request.resource.data.role.size() <= 100
+                    && request.resource.data.comment is string
+                    && request.resource.data.comment.size() <= 1000
+                    && request.resource.data.rating is int;
+      allow update, delete: if isSignedIn();
+    }
+
+    // Leads rules
+    match /leads/{document} {
+      allow read, update, delete: if isSignedIn();
+      allow create: if true;
+    }
+
+    // Leads backup rules
+    match /leads_backup/{document} {
+      allow read, update, delete: if isSignedIn();
+      allow create: if true;
+    }
+
+    // Checkouts rules
+    match /checkouts/{document} {
+      allow read, update, delete: if isSignedIn();
+      allow create: if true;
+    }
+
+    // Checkouts backup rules
+    match /checkouts_backup/{document} {
+      allow read, update, delete: if isSignedIn();
+      allow create: if true;
+    }
+
+    // Pricing overrides rules
+    match /pricing_overrides/{document} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // Blogs rules
+    match /blogs/{document} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // Services rules
+    match /services/{document} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // Admin credentials custom fallback
+    match /admin_credentials/{document} {
+      allow read, write: if true;
+    }
+  }
+}
