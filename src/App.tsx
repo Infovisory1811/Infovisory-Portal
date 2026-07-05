@@ -34,8 +34,8 @@ function ScrollToTop() {
 
 function HomePage() {
   useSEO(
-    'Infovisory: Tax. Compliance. Growth | CA & Legal Advisors in Jaipur',
-    'Infovisory provides premium company registration, GST filing, trademark registration, tax compliance, and corporate legal advisory services in Jaipur and across India.',
+    'Infovisory: Tax. Compliance. Growth | CA & Legal Advisors',
+    'Infovisory provides premium company registration, GST filing, trademark registration, tax compliance, and corporate legal advisory services in Jaipur and across India. Get expert CAs and legal advisors to guide your business growth.',
     '/'
   );
 
