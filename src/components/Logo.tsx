@@ -16,7 +16,7 @@ interface LogoProps {
  * Implements exact color schema and typography matching the official logo:
  * - INFOVISORY: Deep Blue serif style text
  * - CHARTERED ACCOUNTANTS: Muted Teal tracking-widest text
- * - INSIGHT • INTENT • IMPACT: Neutral tracking-wider sub-tagline
+ * - TAX COMPLIANCE GROWTH: Neutral tracking-wider sub-tagline
  */
 export default function Logo({
   variant = 'horizontal',
@@ -115,10 +115,10 @@ export default function Logo({
             Chartered Accountants
           </span>
           
-          {/* Optional Tagline "INSIGHT • INTENT • IMPACT" */}
+          {/* Optional Tagline "TAX COMPLIANCE GROWTH" */}
           {showTagline && (
             <span className="hidden xl:block text-[5.5px] lg:text-[6.5px] xl:text-[7px] font-sans font-bold text-[#556885] tracking-[0.15em] uppercase mt-1 leading-none opacity-95">
-              Insight &bull; Intent &bull; Impact
+              TAX &bull; COMPLIANCE &bull; GROWTH
             </span>
           )}
         </div>
@@ -143,10 +143,10 @@ export default function Logo({
             Chartered Accountants
           </h3>
           
-          {/* Optional Tagline "INSIGHT • INTENT • IMPACT" */}
+          {/* Optional Tagline "TAX COMPLIANCE GROWTH" */}
           {showTagline && (
             <p className="text-[10px] sm:text-xs md:text-sm font-sans font-medium text-[#556885] tracking-[0.3em] uppercase mt-3.5 leading-none">
-              Insight &bull; Intent &bull; Impact
+              TAX &bull; COMPLIANCE &bull; GROWTH
             </p>
           )}
         </div>
